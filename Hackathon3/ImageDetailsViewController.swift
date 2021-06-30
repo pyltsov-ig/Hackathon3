@@ -18,9 +18,5 @@ class ImageDetailsViewController: UIViewController {
         if let photo = photo, let url = URL(string: photo.url_z) {
             photoImageView.kf.setImage(with: url)
         }
-
-       
     }
-    
-
 }

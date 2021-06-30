@@ -23,17 +23,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         photoCollectionView.delegate = self
         photoCollectionView.dataSource = self
-        self.fetchFlickrPhotos {
-            self.photoCollectionView.reloadData()
-        }
     }
     
     
     @IBAction func segmentControlSelect(_ sender: UISegmentedControl) {
+        
         guard let layoutType = LayoutType(rawValue: sender.selectedSegmentIndex) else { return }
         
         self.layoutType = layoutType
-        photoCollectionView.reloadData()
+        self.photoCollectionView.reloadData()
 
     }
     
@@ -51,6 +49,12 @@ extension ViewController {
     
     func fetchFlickrPhotos(complition: @escaping GetComplete) {
         
+        if parameterText == "" {
+           return
+        }
+        
+        parameters["text"] = parameterText
+
         AF.request(baseUrl, method: .get, parameters: parameters ).responseJSON { (response) in
             switch response.result {
             case .success:
@@ -91,7 +95,15 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         return reusableView
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == photosModel.count-1 {
+            parameterPage += 1
+            parameters["page"] = String(parameterPage)
+            fetchFlickrPhotos{
+                self.photoCollectionView.reloadData()
+            }
+        }
+    }
 }
 
 // CollectionView Layout
@@ -112,7 +124,6 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         return 0
     }
     
-    
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if layoutType == .grid {
@@ -123,4 +134,20 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         }
     }
 }
+
+
+// SearchBar
+extension ViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        photosModel.removeAll()
+        self.photoCollectionView.reloadData()
+        searchBar.resignFirstResponder()
+        parameterText = searchBar.text ?? ""
+        fetchFlickrPhotos{
+            self.photoCollectionView.reloadData()
+        }
+    }
+}
+
 
