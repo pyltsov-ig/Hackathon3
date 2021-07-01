@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import MBProgressHUD
 
 typealias GetComplete = () -> ()  // сбегающее замыкание для асинхронной обработки
 
@@ -54,6 +55,7 @@ extension ViewController {
         }
         
         parameters["text"] = parameterText
+        MBProgressHUD.showAdded(to: self.view, animated: true)
 
         AF.request(baseUrl, method: .get, parameters: parameters ).responseJSON { (response) in
             switch response.result {
@@ -68,6 +70,7 @@ extension ViewController {
             case .failure(let error):
                 print(error)
             }
+            MBProgressHUD.hide(for: self.view, animated: true)
         }
     }
 }
@@ -142,6 +145,8 @@ extension ViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         photosModel.removeAll()
         self.photoCollectionView.reloadData()
+        parameterPage = 1
+        parameters["page"] = String(parameterPage)
         searchBar.resignFirstResponder()
         parameterText = searchBar.text ?? ""
         fetchFlickrPhotos{
