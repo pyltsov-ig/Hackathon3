@@ -45,16 +45,15 @@ class ViewController: UIViewController {
 }
 
 // Networking
-
 extension ViewController {
     
     func fetchFlickrPhotos(complition: @escaping GetComplete) {
         
         if parameterText == "" {
-           return
+            return
         }
-        
         parameters["text"] = parameterText
+        
         MBProgressHUD.showAdded(to: self.view, animated: true)
 
         AF.request(baseUrl, method: .get, parameters: parameters ).responseJSON { (response) in
@@ -117,7 +116,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         case grid
         case list
     }
-    
+
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
@@ -127,7 +126,6 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         return 0
     }
     
-
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if layoutType == .grid {
             let itemWidth = collectionView.bounds.width / 3

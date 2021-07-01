@@ -27,6 +27,4 @@ final class ImageCollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
         imageURL = nil
     }
-    
-    
 }

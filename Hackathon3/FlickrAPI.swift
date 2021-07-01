@@ -10,7 +10,7 @@ import Foundation
 let baseUrl = "https://www.flickr.com/services/rest/"
 
 var parameters = [
-    "method" : "flickr.photos.search"   /*"flickr.interestingness.getList"*/,
+    "method" : "flickr.photos.search",
     "api_key" : "83adf9384234a94f66f74f6134b3002f",
     "sort" : "relevance",
     "per_page" : "21",
