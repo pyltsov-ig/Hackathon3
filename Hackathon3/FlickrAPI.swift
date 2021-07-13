@@ -16,7 +16,7 @@ var parameters = [
     "per_page" : "21",
     "format" : "json",
     "nojsoncallback" : "1",
-    "extras" : "url_q, url_z",
+    "extras" : "url_q, url_o",
     "page":"1"
     ]
 

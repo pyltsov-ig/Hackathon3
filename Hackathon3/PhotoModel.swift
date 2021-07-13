@@ -10,11 +10,11 @@ import SwiftyJSON
 
 
 class PhotoModel{
-    var url_z:String
+    var url_o:String
     var url_q:String
     
     init(photosDictionary: JSON) {
-        self.url_z = photosDictionary["url_z"].stringValue
+        self.url_o = photosDictionary["url_o"].stringValue
         self.url_q = photosDictionary["url_q"].stringValue
     }
 }
