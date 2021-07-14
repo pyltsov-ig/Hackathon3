@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Kingfisher
+//import Kingfisher
 
 class ImageDetailsViewController: UIViewController {
     
@@ -23,7 +23,7 @@ class ImageDetailsViewController: UIViewController {
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
         queue.async {
-            if let photo = self.photo, let url = URL(string: photo.url_o),let imageData = try? Data(contentsOf: url) {
+            if let photo = self.photo, let url = URL(string: photo.url_o), let imageData = try? Data(contentsOf: url) {
                 DispatchQueue.main.async {
                     self.photoImageView.image = UIImage(data: imageData)
                     self.activityIndicator.stopAnimating()

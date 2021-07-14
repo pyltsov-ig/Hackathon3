@@ -47,6 +47,8 @@ class ViewController: UIViewController {
 // Networking
 extension ViewController {
     
+    //  метод fetchFlickrPhotos с использованием библиотеки Alamofire. Этот метод не вызывается в этой версии приложения, но оставлен на память, в учебных целях. В этой версии приложения вызывается метод getFlickrPhotos, от идет следом.
+    
     func fetchFlickrPhotos(complition: @escaping GetComplete) {
         
         if parameterText == "" {
@@ -55,6 +57,7 @@ extension ViewController {
         parameters["text"] = parameterText
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
+        
 
         AF.request(baseUrl, method: .get, parameters: parameters ).responseJSON { (response) in
             switch response.result {
@@ -72,6 +75,49 @@ extension ViewController {
             MBProgressHUD.hide(for: self.view, animated: true)
         }
     }
+    
+    // с использованием URLSession only
+    func getFlickrPhotos(complition: @escaping GetComplete) {
+        
+        if parameterText == "" {
+            return
+        }
+        parameters["text"] = parameterText
+        
+        // индикатор старт
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+       
+        var components = URLComponents(string: baseUrl)!
+        components.queryItems = parameters.map{ (key, value) in
+            URLQueryItem(name: key, value: value)
+        }
+        
+        let request = URLRequest(url: components.url!)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data,
+                  let response = response as? HTTPURLResponse,
+                  (200..<300) ~= response.statusCode,
+                  error == nil
+            else { return }
+            
+            let responseObject = (try? JSONSerialization.jsonObject(with: data)) as? [String:Any]
+        
+        guard let unwrResponse = responseObject else {return}
+            
+            let json = JSON(unwrResponse)["photos"]["photo"]
+            for i in 0..<json.count {
+                let photo = PhotoModel(photosDictionary: json[i])
+                self.photosModel.append(photo)
+            }
+            DispatchQueue.main.async {
+                MBProgressHUD.hide(for: self.view, animated: false)
+                complition()
+            }
+        }
+        task.resume()
+    }
+
+    
 }
 
 // CollectionView
@@ -84,7 +130,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! ImageCollectionViewCell
         let photo = photosModel[indexPath.row]
-        cell.imageURL = layoutType == .grid ? photo.url_q : photo.url_o
+        cell.imageURL = layoutType == .grid ? photo.url_q : photo.url_z
         return cell
     }
     
@@ -101,7 +147,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         if indexPath.row == photosModel.count-1 {
             parameterPage += 1
             parameters["page"] = String(parameterPage)
-            fetchFlickrPhotos{
+            getFlickrPhotos {
                 self.photoCollectionView.reloadData()
             }
         }
@@ -147,10 +193,12 @@ extension ViewController: UISearchBarDelegate {
         parameters["page"] = String(parameterPage)
         searchBar.resignFirstResponder()
         parameterText = searchBar.text ?? ""
-        fetchFlickrPhotos{
+        getFlickrPhotos {
             self.photoCollectionView.reloadData()
         }
     }
 }
+
+
 
 
