@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6540E17826A429F200043043 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6540E17726A429F200043043 /* Alamofire */; };
+		6540E17B26A42A8C00043043 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 6540E17A26A42A8C00043043 /* SwiftyJSON */; };
+		6540E17E26A42AC800043043 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 6540E17D26A42AC800043043 /* MBProgressHUD */; };
+		6540E18126A42B1600043043 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 6540E18026A42B1600043043 /* Kingfisher */; };
 		780A67442687B85F004AB4E2 /* ImageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780A67432687B85F004AB4E2 /* ImageDetailsViewController.swift */; };
 		780A67482687B901004AB4E2 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780A67472687B901004AB4E2 /* ImageCollectionViewCell.swift */; };
 		780A674C2687B949004AB4E2 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780A674B2687B949004AB4E2 /* PhotoModel.swift */; };
@@ -17,11 +21,9 @@
 		78C670E4268653D100B94B42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78C670E2268653D100B94B42 /* Main.storyboard */; };
 		78C670E6268653D400B94B42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78C670E5268653D400B94B42 /* Assets.xcassets */; };
 		78C670E9268653D400B94B42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78C670E7268653D400B94B42 /* LaunchScreen.storyboard */; };
-		B89A58244C040091ECC24899 /* Pods_Hackathon3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45FEAD874C4D322670BF97D5 /* Pods_Hackathon3.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		45FEAD874C4D322670BF97D5 /* Pods_Hackathon3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hackathon3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		780A67432687B85F004AB4E2 /* ImageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsViewController.swift; sourceTree = "<group>"; };
 		780A67472687B901004AB4E2 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		780A674B2687B949004AB4E2 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
@@ -34,8 +36,6 @@
 		78C670E5268653D400B94B42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78C670E8268653D400B94B42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		78C670EA268653D400B94B42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A627B3EE2FB792920AAC0055 /* Pods-Hackathon3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackathon3.release.xcconfig"; path = "Target Support Files/Pods-Hackathon3/Pods-Hackathon3.release.xcconfig"; sourceTree = "<group>"; };
-		E739919B51B5A93128863A35 /* Pods-Hackathon3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackathon3.debug.xcconfig"; path = "Target Support Files/Pods-Hackathon3/Pods-Hackathon3.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +43,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B89A58244C040091ECC24899 /* Pods_Hackathon3.framework in Frameworks */,
+				6540E18126A42B1600043043 /* Kingfisher in Frameworks */,
+				6540E17E26A42AC800043043 /* MBProgressHUD in Frameworks */,
+				6540E17B26A42A8C00043043 /* SwiftyJSON in Frameworks */,
+				6540E17826A429F200043043 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,8 +58,6 @@
 			children = (
 				78C670DB268653D100B94B42 /* Hackathon3 */,
 				78C670DA268653D100B94B42 /* Products */,
-				DB2BF2C339C11D55881063D8 /* Pods */,
-				ED1CAC19CD7A09DFC0169ECC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,23 +87,6 @@
 			path = Hackathon3;
 			sourceTree = "<group>";
 		};
-		DB2BF2C339C11D55881063D8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E739919B51B5A93128863A35 /* Pods-Hackathon3.debug.xcconfig */,
-				A627B3EE2FB792920AAC0055 /* Pods-Hackathon3.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		ED1CAC19CD7A09DFC0169ECC /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				45FEAD874C4D322670BF97D5 /* Pods_Hackathon3.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -110,17 +94,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 78C670ED268653D400B94B42 /* Build configuration list for PBXNativeTarget "Hackathon3" */;
 			buildPhases = (
-				181AE2346F3E4B3420CBD695 /* [CP] Check Pods Manifest.lock */,
 				78C670D5268653D100B94B42 /* Sources */,
 				78C670D6268653D100B94B42 /* Frameworks */,
 				78C670D7268653D100B94B42 /* Resources */,
-				21740B396493A3FE5E3A8A40 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Hackathon3;
+			packageProductDependencies = (
+				6540E17726A429F200043043 /* Alamofire */,
+				6540E17A26A42A8C00043043 /* SwiftyJSON */,
+				6540E17D26A42AC800043043 /* MBProgressHUD */,
+				6540E18026A42B1600043043 /* Kingfisher */,
+			);
 			productName = Hackathon3;
 			productReference = 78C670D9268653D100B94B42 /* Hackathon3.app */;
 			productType = "com.apple.product-type.application";
@@ -148,6 +136,12 @@
 				Base,
 			);
 			mainGroup = 78C670D0268653D100B94B42;
+			packageReferences = (
+				6540E17626A429F200043043 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				6540E17926A42A8C00043043 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				6540E17C26A42AC800043043 /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
+				6540E17F26A42B1600043043 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 78C670DA268653D100B94B42 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -169,48 +163,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		181AE2346F3E4B3420CBD695 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Hackathon3-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		21740B396493A3FE5E3A8A40 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Hackathon3/Pods-Hackathon3-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Hackathon3/Pods-Hackathon3-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Hackathon3/Pods-Hackathon3-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		78C670D5268653D100B94B42 /* Sources */ = {
@@ -367,7 +319,6 @@
 		};
 		78C670EE268653D400B94B42 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E739919B51B5A93128863A35 /* Pods-Hackathon3.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -387,7 +338,6 @@
 		};
 		78C670EF268653D400B94B42 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A627B3EE2FB792920AAC0055 /* Pods-Hackathon3.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -427,6 +377,64 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6540E17626A429F200043043 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/manishraval27/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		6540E17926A42A8C00043043 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		6540E17C26A42AC800043043 /* XCRemoteSwiftPackageReference "MBProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jdg/MBProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+		6540E17F26A42B1600043043 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CourtlandBueno/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6540E17726A429F200043043 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6540E17626A429F200043043 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		6540E17A26A42A8C00043043 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6540E17926A42A8C00043043 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		6540E17D26A42AC800043043 /* MBProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6540E17C26A42AC800043043 /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
+			productName = MBProgressHUD;
+		};
+		6540E18026A42B1600043043 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6540E17F26A42B1600043043 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 78C670D1268653D100B94B42 /* Project object */;
 }

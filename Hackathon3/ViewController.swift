@@ -47,7 +47,7 @@ class ViewController: UIViewController {
 // Networking
 extension ViewController {
     
-    //  метод fetchFlickrPhotos с использованием библиотеки Alamofire. Этот метод не вызывается в этой версии приложения, но оставлен на память, в учебных целях. В этой версии приложения вызывается метод getFlickrPhotos, от идет следом.
+    //  метод fetchFlickrPhotos с использованием библиотеки Alamofire. Этот метод не вызывается в этой версии приложения, так как по требованию ментора данный функционал был переделан без использования Alamifire. Однако, метод оставлен на память и в учебных целях. В этой версии приложения вызывается метод getFlickrPhotos, от идет следом.
     
     func fetchFlickrPhotos(complition: @escaping GetComplete) {
         
